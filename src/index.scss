@@ -1,0 +1,62 @@
+$color_darkwine : #991010;
+$color_pink: #FFE6E6;
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./assets/fontWorkSans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Work Sans Bold';
+  src: url('./assets/fontWorkSansBold.ttf');
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.navBar_container{
+  background-color: $color_darkwine;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em 0 2em;
+  box-sizing: border-box;
+
+  .rightItems_container{ 
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.mainPage_container{
+  position: relative;
+  z-index: -2;
+  background-color: $color_pink;
+}
+
+.homepage_title{
+
+  display: inline-block;
+  color: white;
+  font-family: "Work Sans Bold";
+  font-style: normal;
+  font-size: 9.5vw;
+  text-align: center;
+  text-shadow: 0px 0px 8px #000000; 
+}
+
+.common_font {
+  color: white;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 33px;
+  text-decoration: none;
+}

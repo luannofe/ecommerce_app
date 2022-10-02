@@ -1,0 +1,9 @@
+{
+  "products": [
+    {
+      "name": "Chocolate Branco",
+      "url": "../assets/products/productCookieChocolateBranco.jpg",
+      "cost": "9.73"
+    }
+  ]
+}
