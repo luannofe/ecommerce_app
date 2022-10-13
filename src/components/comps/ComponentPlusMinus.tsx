@@ -14,11 +14,11 @@ export default function ComponentPlusMinusButton() {
                 <img src={iconUndo}></img>
             </div>
             <div className="buttonIcon hoverGrow">
-                <img src={iconMinus} onClick={()=> {context.setCount((count: number) => count - 1)}}></img>
+                <img src={iconMinus} onClick={()=> {context.setCount((count: number) => Math.max(1, Math.min(count - 1, 99)))}}></img>
             </div>
             <div className="productInput">{context.count}</div>
             <div className="buttonIcon hoverGrow">
-                <img src={iconPlus}  onClick={()=> {context.setCount((count: number) => count + 1)}}></img>
+                <img src={iconPlus}  onClick={()=> {context.setCount((count: number) => Math.max(1, Math.min(count + 1, 99)))}}></img>
             </div>
             <div className="defaultIcon hoverGrow">
                 <img style={{filter: 'invert(25%) sepia(67%) saturate(1637%) hue-rotate(106deg) brightness(101%) contrast(101%)'}} src={iconConfirm}></img>

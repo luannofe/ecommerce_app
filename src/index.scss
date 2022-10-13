@@ -67,6 +67,7 @@ body {
   background-color: rgb(255, 255, 255);
   height: 450px;
   width: 350px;
+  min-width: 350px;
   border-radius: 28px;
   transition: 200ms;
   display: flex;
@@ -205,6 +206,28 @@ body {
   }
 }
 
+
+.carouselProducts {
+  display: flex;
+  overflow-x: scroll;
+  padding: 25px 90px 25px 20px;
+  gap: 30px;
+  flex: 1;
+
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.carouselHL {
+  height: 6px;
+  width: 90%;
+  border-width: 0px;
+  background-color: #FFE6E6;
+  border-radius: 50px;
+}
 
 //#endregion
 

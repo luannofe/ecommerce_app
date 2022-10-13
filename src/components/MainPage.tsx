@@ -11,7 +11,11 @@ export default function MainPage() {
                 <img src={imgCookieBackground} style={{ objectFit: 'cover', width: '100%', height: '100%', position: 'absolute', zIndex: '-1' }} alt="" />
                 <span className='homepage_title'>Nossos <span style={{ color: '#991010' }}>cookies</span> são maravilhosos.</span>
             </div>
-            <div style={{ width: '100%' }} role='second_page'>
+        </div>
+    )
+}
+
+/*             <div style={{ width: '100%' }} role='second_page'>
                 <div style={{ margin: 'auto', width: '80%', height: '100vh', backgroundColor: 'rgba(255, 255, 255, 0,75' }}>
                     <span className='common_font' style={{ color: '#991010', fontSize: '48px' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
                     <p className='common_font' style={{ color: '#991010', fontSize: '48px' }}>
@@ -19,7 +23,4 @@ export default function MainPage() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                 </div>
-            </div> 
-        </div>
-    )
-}
+            </div>  */
