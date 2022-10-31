@@ -1,0 +1,2 @@
+Solicitar dados de usuario assim que logar no site, para então escrever na localStorage os dados do carrinho.
+Caso não tenha um usuário, devo escrever diretamente no localStorage.

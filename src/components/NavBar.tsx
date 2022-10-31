@@ -26,9 +26,9 @@ export default function NavBar() {
         <a href="#">
           <img src={iconProfile} alt="" />
         </a>
-        <a href="#">
+        <Link to={'/carrinho'} style={{ textDecoration: 'none' }}>
           <img src={iconCart} alt="" />
-        </a>
+        </Link>
       </div>
     </div>
   )

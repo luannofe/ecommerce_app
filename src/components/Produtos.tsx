@@ -15,10 +15,20 @@ export default function Produtos() {
 
     return (
         <>
-        <div style={{backgroundColor: '#FFE6E6', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <div style={{width: '1280px', backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignItems:'center'}}>
-                <ComponentCarouselProduct/>
-                <ComponentCarouselProduct/>
+        <div className="mainBackground">
+            <div className="mainInnerBackground">
+                <ComponentCarouselProduct sectionName="Top Sellers">
+                    <ComponentProduct productName="Chocolate" productCost={4} />
+                    <ComponentProduct/>
+                    <ComponentProduct/>
+                    <ComponentProduct/>
+                </ComponentCarouselProduct>
+                <ComponentCarouselProduct sectionName="Low Carbs">
+                    <ComponentProduct/>
+                    <ComponentProduct/>
+                    <ComponentProduct/>
+                    <ComponentProduct/>
+                </ComponentCarouselProduct>
             </div>
         </div>
         </>    

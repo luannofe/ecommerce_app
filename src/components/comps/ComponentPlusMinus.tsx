@@ -1,28 +1,44 @@
-import { useContext, useState } from "react"
+import { Context, useContext, useState } from "react"
 import iconPlus from '../../assets/icon_plus.svg'
 import iconMinus from '../../assets/icon_minus.svg'
 import iconUndo from '../../assets/icon_undo.svg'
 import iconConfirm from '../../assets/icon_confirm.svg'
-import { CountContext } from "./ComponentProduct"
 
+interface Props {
+    context: {
+        count: number,
+        interacted: boolean,
+        setCount: Function,
+        setInteracted: Function
+    },
+    confirmations: boolean
+}
 
-export default function ComponentPlusMinusButton() {
-    const context = useContext(CountContext)
+export default function ComponentPlusMinusButton(props : Props) {
+
+    
+
     return (
         <div style={{display: 'flex', gap: '10px', justifyContent: 'center', alignItems: 'center'}}>
-            <div className="defaultIcon hoverGrow" style={{backgroundColor: 'red'}} onClick={() => {context.setInteracted(!context.interacted); context.setCount(1)}}>
+            {props.confirmations && (
+            <div className="defaultIcon hoverGrow" style={{backgroundColor: 'red'}} onClick={() => {props.context.setInteracted(!props.context.interacted); props.context.setCount(1)}}>
                 <img src={iconUndo}></img>
             </div>
+            )}
+
             <div className="buttonIcon hoverGrow">
-                <img src={iconMinus} onClick={()=> {context.setCount((count: number) => Math.max(1, Math.min(count - 1, 99)))}}></img>
+                <img src={iconMinus} onClick={()=> {props.context.setCount((count: number) => Math.max(1, Math.min(count - 1, 99)))}}></img>
             </div>
-            <div className="productInput">{context.count}</div>
+            <div className="productInput">{props.context.count}</div>
             <div className="buttonIcon hoverGrow">
-                <img src={iconPlus}  onClick={()=> {context.setCount((count: number) => Math.max(1, Math.min(count + 1, 99)))}}></img>
+                <img src={iconPlus}  onClick={()=> {props.context.setCount((count: number) => Math.max(1, Math.min(count + 1, 99)))}}></img>
             </div>
+
+            {props.confirmations && (
             <div className="defaultIcon hoverGrow">
                 <img style={{filter: 'invert(25%) sepia(67%) saturate(1637%) hue-rotate(106deg) brightness(101%) contrast(101%)'}} src={iconConfirm}></img>
             </div>
+            )}
         </div>
     )
 }
