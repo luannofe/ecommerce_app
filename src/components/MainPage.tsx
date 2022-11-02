@@ -1,8 +1,15 @@
 import React from "react";
+
 import imgCookieBackground from '../assets/cookies_bgr.png'
 
 
+
+
+
+
+
 export default function MainPage() {
+
 
 
     return (

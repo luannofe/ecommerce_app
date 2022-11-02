@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from "react";
+import { inProductDB } from "../../server/interfaces";
 import ComponentCarouselProduct from "./comps/ComponentCarouselProduct";
 import ComponentProduct from "./comps/ComponentProduct";
 
@@ -7,10 +8,10 @@ export default function Produtos() {
 
     
 
-    const [loadedProducts, setLoadedProducts] = useState<object>()
+    const [loadedProducts, setLoadedProducts] = useState<inProductDB[]>()
 
     useEffect(()=> {
-
+        loadProducts()
     }, [])
 
     return (
@@ -18,19 +19,35 @@ export default function Produtos() {
         <div className="mainBackground">
             <div className="mainInnerBackground">
                 <ComponentCarouselProduct sectionName="Top Sellers">
-                    <ComponentProduct productName="Chocolate" productCost={4} />
-                    <ComponentProduct/>
-                    <ComponentProduct/>
-                    <ComponentProduct/>
+                    {
+                        loadedProducts?.map((product) => {
+                            return (
+                                <ComponentProduct 
+                                    productCost={product.productCost} 
+                                    productID={product.productID}
+                                    productName={product.productName}
+                                    productIMGUrl="cookies_bgr.png"
+                                    productDesc={product.productDesc}
+                                />
+                            )
+                        })
+                    }
                 </ComponentCarouselProduct>
                 <ComponentCarouselProduct sectionName="Low Carbs">
-                    <ComponentProduct/>
-                    <ComponentProduct/>
-                    <ComponentProduct/>
-                    <ComponentProduct/>
                 </ComponentCarouselProduct>
             </div>
         </div>
         </>    
     )
+
+    async function loadProducts() {
+        fetch('http://localhost:3000/api/products', {
+            method: 'GET'
+        })
+        .then( res => res.json() as Promise<inProductDB[]>)
+        .then( data => {
+            console.log(data)
+            setLoadedProducts(data)
+        })
+    }
 }

@@ -1,5 +1,6 @@
 
 import React, { createContext, useContext, useState } from "react";
+import { inProductDB } from "../../../server/interfaces";
 
 import iconInfo from '../../assets/icon_info.svg'
 import ComponentPlusMinusButton from "./ComponentPlusMinus";
@@ -12,13 +13,9 @@ interface inCountCtx {
     setInteracted: Function
 }
 
-interface inProduct {
-    productName?: string,
-    productCost?: number,
-    productImgSrc?: string
-}
 
-export default function ComponentProduct(props: inProduct) {
+
+export default function ComponentProduct(props: inProductDB) {
 
     const [Interacted, setInteracted] = useState(false)
     const [count, setCount] = useState(1)
@@ -36,7 +33,7 @@ export default function ComponentProduct(props: inProduct) {
             <img src="./cookie_chocolate_branco.jpg" style={{marginTop: '44px', width: '228px', height:'228px', borderRadius:'50%', objectFit: 'cover'}} />
             <img src={iconInfo}  className='productInfo hoverGrow' style={{top: '26px', left: '288px', position: 'absolute', cursor: 'pointer'}} />
             <span className="productTitle">{props.productName}</span>
-            <span className="productDesc">36 kcal</span>
+            <span className="productDesc">{props.productDesc}</span>
             <span className="productDesc" style={{color: 'green'}}>{`R$${(props.productCost! * count).toFixed(2)}`}</span>
             {Interacted
             ?  <ComponentAddToCart countContextValue={countContextValue}/>  

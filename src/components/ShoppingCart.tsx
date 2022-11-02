@@ -1,63 +1,46 @@
 import React, { useEffect, useState } from "react";
 import ComponentCartEntry from "./comps/ComponentCartEntry";
+import { inUserDB } from "../../server/interfaces";
 
-
-interface inCartDataItem { 
-    productName: string,
-    productQuantity: number
-}
 
 
 export default function ShoppingCart() {
 
-    const [data, setData] = useState<any>()
+    const [cartData, setCartData] = useState<inUserDB['cart']>()
 
     useEffect(()=> {
-        console.log('procou')
-        if (!data) {
-            getUserCart()
-        } else {
-            console.log(data)
-        }
-
-        return () => {
-            //clear
-        }
-    }, [data])
+        retrieveCart()
+    }, [])
 
     return (
         <div className="mainBackground">
             <div className="mainInnerBackground">
-                {data && (
+                {cartData && (
                     
                     <div style={{width: '95%'}}>
                         <h4 className="common_font" style={{color: 'black'}}>Seu pedido</h4>
-                        {data[0].cart.map((item : inCartDataItem) => {
+                        {cartData.map((cartEntry) => {
                             return(
-                                <><ComponentCartEntry productQuantity={item.productQuantity} productName={item.productName}/></>
+                                <>
+                                    <ComponentCartEntry 
+                                        productName={cartEntry.productName} 
+                                        productQuantity={cartEntry.productQuantity}  
+                                    />
+                                </>
                             )
                         })}
                     </div>
                 )}
 
-                {!data && (
+                {!cartData && (
                     <span className="homepage_title">Loading...</span>
                 )}
             </div>
         </div>
     )
 
-
-    async function getUserCart() {
-
-        await fetch('http://localhost:3000/api/user', {
-            method: 'GET'
-        })
-        .then( res => res.json())
-        .then( data => {
-            setData(data)
-        })
-
-
+    async function retrieveCart() {
+        let a : inUserDB['cart'] = JSON.parse(localStorage.getItem('shoppingCart')!)
+        setCartData(a)
     }
 }

@@ -1,11 +1,23 @@
 {
-  "products": [],
+  "products": [
+    {
+      "productID": 0,
+      "productName": "Chocolate",
+      "productDesc": "34kcal",
+      "productCost": 4,
+      "productIMGUrl": ""
+    }
+  ],
   "users": [
     {
       "cart": [
         {
-          "productName": "Produto1",
-          "productQuantity": "4"
+          "productName": "asdasd",
+          "productQuantity": 4
+        },
+        {
+          "productName": "asdasdasd",
+          "productQuantity": 3
         }
       ]
     }

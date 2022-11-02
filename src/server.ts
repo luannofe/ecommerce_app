@@ -1,25 +1,14 @@
 import express from 'express'
 import { Low, JSONFile } from 'lowdb'
+import { inGlobalDB, inUserDB }  from "../server/interfaces";
 
 
 const app = express()
 const port = 3000
 
-interface Data {
-    products: string[]
-    users: [
-        user: {
-            cart: [
-                {
-                    productName: string,
-                    productQuantity: number
-                }
-            ]
-        }
-    ]
-}
 
-const adapter = new JSONFile<Data>('db.json')
+
+const adapter = new JSONFile<inGlobalDB>('db.json')
 const db = new Low(adapter)
 
 
@@ -45,14 +34,27 @@ app.listen(port, () => {
 async function initializeDB() {
     await db.read()
     db.data ||= {
-        products: [],
+        products: [
+            {
+                productID: 0,
+                productName: 'Chocolate',
+                productDesc: '34kcal',
+                productCost: 4,
+                productIMGUrl: ''
+            }
+        ],
         users: [
             {
                 cart: [
                     {
-                        productName: 'Produto1',
+                        productName: 'asdasd', 
                         productQuantity: 4
-                    }
+                    },
+                    {
+                        productName: 'asdasdasd', 
+                        productQuantity: 3
+                    },
+
                 ]
             }
         ]
