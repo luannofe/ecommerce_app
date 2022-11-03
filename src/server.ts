@@ -34,27 +34,26 @@ app.listen(port, () => {
 async function initializeDB() {
     await db.read()
     db.data ||= {
+        //TODO: server should send product img path instead of relative path
         products: [
             {
                 productID: 0,
                 productName: 'Chocolate',
                 productDesc: '34kcal',
                 productCost: 4,
-                productIMGUrl: ''
+                productIMGUrl: './cookie_chocolate_branco.jpg'
+            },
+            {
+                productID: 1,
+                productName: 'Milk',
+                productDesc: '44kcal',
+                productCost: 3.4,
+                productIMGUrl: './cookie_red_velvet.jpg'
             }
         ],
         users: [
             {
                 cart: [
-                    {
-                        productName: 'asdasd', 
-                        productQuantity: 4
-                    },
-                    {
-                        productName: 'asdasdasd', 
-                        productQuantity: 3
-                    },
-
                 ]
             }
         ]

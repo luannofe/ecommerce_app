@@ -10,7 +10,8 @@ interface inCountCtx {
     count: number,
     interacted: boolean,
     setCount: Function,
-    setInteracted: Function
+    setInteracted: Function,
+    thisProduct: inProductDB
 }
 
 
@@ -24,13 +25,15 @@ export default function ComponentProduct(props: inProductDB) {
         count: count, 
         setCount: setCount, 
         interacted: Interacted, 
-        setInteracted: setInteracted
+        setInteracted: setInteracted,
+        thisProduct: props
     }
     
+    console.log(props)
 
     return (
         <div className="productContainer">
-            <img src="./cookie_chocolate_branco.jpg" style={{marginTop: '44px', width: '228px', height:'228px', borderRadius:'50%', objectFit: 'cover'}} />
+            <img src={props.productIMGUrl} style={{marginTop: '44px', width: '228px', height:'228px', borderRadius:'50%', objectFit: 'cover'}} />
             <img src={iconInfo}  className='productInfo hoverGrow' style={{top: '26px', left: '288px', position: 'absolute', cursor: 'pointer'}} />
             <span className="productTitle">{props.productName}</span>
             <span className="productDesc">{props.productDesc}</span>

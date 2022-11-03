@@ -26,7 +26,7 @@ export default function Produtos() {
                                     productCost={product.productCost} 
                                     productID={product.productID}
                                     productName={product.productName}
-                                    productIMGUrl="cookies_bgr.png"
+                                    productIMGUrl={product.productIMGUrl}
                                     productDesc={product.productDesc}
                                 />
                             )

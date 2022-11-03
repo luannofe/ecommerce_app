@@ -15,26 +15,25 @@ export default function ShoppingCart() {
     return (
         <div className="mainBackground">
             <div className="mainInnerBackground">
-                {cartData && (
                     
-                    <div style={{width: '95%'}}>
-                        <h4 className="common_font" style={{color: 'black'}}>Seu pedido</h4>
-                        {cartData.map((cartEntry) => {
-                            return(
-                                <>
-                                    <ComponentCartEntry 
-                                        productName={cartEntry.productName} 
-                                        productQuantity={cartEntry.productQuantity}  
-                                    />
-                                </>
-                            )
-                        })}
-                    </div>
-                )}
-
-                {!cartData && (
-                    <span className="homepage_title">Loading...</span>
-                )}
+                <div style={{width: '95%'}}>
+                    <h4 className="common_font" style={{color: 'black'}}>Seu carrinho</h4>
+                    {cartData && cartData.map((cartEntry) => {
+                        return(
+                            <>
+                                <ComponentCartEntry 
+                                    productID={cartEntry.productID} 
+                                    productQuantity={cartEntry.productQuantity}  
+                                />
+                            </>
+                        )
+                    })}
+                    {!cartData &&  (
+                        <>
+                            <span className="common_font" style={{color: 'grey'}}>Ops! Parece que não tem nada aqui...</span>
+                        </>
+                    )}
+                </div>
             </div>
         </div>
     )

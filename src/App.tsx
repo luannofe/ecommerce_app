@@ -49,8 +49,9 @@ function App() {
       let i = 0
       let items : any[] = []
       for (let item of itemsArray) {
+
         i++
-        items = [...items, {productName: item.productName, productQuantity: item.productQuantity}]
+        items = [...items, {productID: item.productID, productQuantity: item.productQuantity}]
         
 
         if (i >= (itemsArray.length - 1)) {

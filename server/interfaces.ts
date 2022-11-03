@@ -1,5 +1,7 @@
 
 
+
+
 export  interface inGlobalDB {
     products: inProductDB[]
     
@@ -25,9 +27,9 @@ export interface inUserDB {
     
 }
 
-interface inItemCartDB {
+export interface inItemCartDB {
 
-        productName: string,
+        productID: number,
         productQuantity: number
 
 }
